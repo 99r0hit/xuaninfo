@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XuanLabs — Creative Lab</title>
+  <meta name="description" content="XuanLabs: a creative universe — AI, Web, Hardware, Poetry, Experiments." />
+  <meta name="theme-color" content="#0ff" />
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- FX layers -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-md fixed-top nav-glass">
+    <div class="container">
+      <a class="navbar-brand fw-bold gradient-text" href="#">XuanLabs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#journal">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="pill mb-3"><i class="bi bi-stars text-info"></i> Welcome to the lab</div>
+        <h1 class="mb-3">A <span class="gradient-text">creative universe</span> where ideas get built.</h1>
+        <p class="mb-4">
+          AI + Web + Hardware + Poetry + Experiments.
+          This is <span class="cursor" id="typeTarget">XuanLabs</span> — an evolving space of projects and notes by Yixuan.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-glow" href="#projects"><i class="bi bi-rocket-takeoff me-1"></i> Explore Projects</a>
+          <a class="btn btn-outline-light" href="#journal"><i class="bi bi-journal-text me-1"></i> Read Journal</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Glowing circle portrait -->
+        <div class="portrait-wrap glass">
+          <!-- replace with your photo -->
+          <img src="assets/portrait.png" alt="Rohit / Yixuan portrait" class="portrait" />
+        </div>
+        <!-- <p class="small sub mt-2">Replace <code>assets/portrait.jpg</code> with your picture (square works best, e.g., 800×800).</p> -->
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS (Tabs) -->
+  <section id="projects" class="section container">
+    <div class="d-flex justify-content-between align-items-end mb-3">
+      <h2 class="section-title">Projects</h2>
+      <span class="tag"><i class="bi bi-cpu"></i> software ↔ hardware</span>
+    </div>
+
+    <ul class="nav nav-pills mb-4" id="projTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-soft" data-bs-toggle="pill" data-bs-target="#soft" type="button" role="tab">
+          Software / AI
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-hard" data-bs-toggle="pill" data-bs-target="#hard" type="button" role="tab">
+          Hardware / E&C
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-personal" data-bs-toggle="pill" data-bs-target="#personal" type="button" role="tab">
+          Personal
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <!-- Software -->
+      <div class="tab-pane fade show active" id="soft" role="tabpanel">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-robot"></i> AI</div>
+                <a class="icon-round" href="#" aria-label="Open"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">AI Material Management (EMS)</h5>
+              <p class="sub">Inventory optimization with forecasting, dead-stock detection, supplier risk view, secure login. (Demo creds in README)</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">Auth</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-palette"></i> Viz</div>
+                <a class="icon-round" href="#"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">CIE Color Simulator</h5>
+              <p class="sub">Plot/compare CIE 1931 LED coordinates, chromaticity deltas, exportable reports.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">DataViz</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-window"></i> Web</div>
+                <a class="icon-round" href="#"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">Client Websites (SMEs)</h5>
+              <p class="sub">Responsive, multilingual, animated sites for SMEs — UI polish, SEO, and speed.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">HTML</span><span class="chip">Bootstrap</span><span class="chip">JS</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardware -->
+      <div class="tab-pane fade" id="hard" role="tabpanel">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-motherboard"></i> HW</div>
+                <a class="icon-round" href="#"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">Supplier Sourcing & Process</h5>
+              <p class="sub">Hands-on work with supplier evals, alt parts, and documentation. Exposure: CN (Shanghai/Shenzhen).</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">Semicon</span><span class="chip">Ops</span><span class="chip">Docs</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-joystick"></i> Build</div>
+                <a class="icon-round" href="#"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">ChessBoard 21</h5>
+              <p class="sub">21-inch display chessboard with Arduino control, AI modes, puzzles, and UX experiments.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">Arduino</span><span class="chip">C++</span><span class="chip">UX</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal -->
+      <div class="tab-pane fade" id="personal" role="tabpanel">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <article class="glass lab-card h-100 p-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="chip"><i class="bi bi-brush"></i> Art</div>
+                <a class="icon-round" href="#"><i class="bi bi-arrow-up-right"></i></a>
+              </div>
+              <h5 class="fw-bold">Poetry & Pixels</h5>
+              <p class="sub">Shortform poems + photo essays. Small bursts of meaning, ships in public.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="chip">Writing</span><span class="chip">Photo</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section id="journal" class="section container">
+    <h2 class="section-title mb-3">Lab Journal</h2>
+    <p class="sub mb-4">Tiny logs from the build process. Thought fragments, tests, learnings.</p>
+    <div class="row g-4">
+      <div class="col-lg-6 reveal">
+        <div class="glass p-4 h-100">
+          <h6 class="text-uppercase small text-info">Log — 001</h6>
+          <h5 class="fw-bold">Ship small, ship often</h5>
+          <p class="sub mb-0">First deploy goes live. Next up: project pages + live demos.</p>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="glass p-4 h-100">
+          <h6 class="text-uppercase small text-info">Log — 002</h6>
+          <h5 class="fw-bold">Design language</h5>
+          <p class="sub mb-0">Neon cyan × purple, glass, starfield, smooth reveals. Minimal text, high-intent CTAs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h2 class="section-title">About XuanLabs</h2>
+        <p class="sub">“Yixuan” (逸轩) ≈ free-spirited elegance; rising above ordinary. XuanLabs is the playground where that energy builds things — equal parts engineering and art.</p>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <span class="chip"><i class="bi bi-lightning-charge"></i> Experiments</span>
+          <span class="chip"><i class="bi bi-cpu"></i> AI</span>
+          <span class="chip"><i class="bi bi-motherboard"></i> Hardware</span>
+          <span class="chip"><i class="bi bi-columns-gap"></i> Web</span>
+          <span class="chip"><i class="bi bi-brush"></i> Poetry & Visuals</span>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="glass p-4 h-100">
+          <h5 class="fw-bold mb-3">Principles</h5>
+          <ul class="sub mb-0">
+            <li>Build in public. Teach while making.</li>
+            <li>Small scopes → frequent shipping.</li>
+            <li>Accessible, fast, device-friendly.</li>
+            <li>Honest design. No fluff, only signal.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section container">
+    <div class="d-flex justify-content-between align-items-end mb-3">
+      <h2 class="section-title">Gallery</h2>
+      <!-- <span class="tag"><i class="bi bi-image"></i> drop images in <code>/assets/gallery</code></span> -->
+    </div>
+    <div class="row g-3" id="galleryGrid">
+      <!-- JS injects thumbnails -->
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6">
+        <h2 class="section-title">Get in touch</h2>
+        <p class="sub">Have an idea, collab, or experiment? Drop a line.</p>
+        <form name="contact" method="POST" data-netlify="true" class="glass p-4" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input class="form-control" name="name" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" name="message" required></textarea>
+          </div>
+          <button class="btn btn-glow" type="submit"><i class="bi bi-send me-1"></i> Send</button>
+        </form>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="glass h-100 p-4 d-flex flex-column justify-content-center">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="icon-round"><i class="bi bi-geo-alt"></i></span> Pune, IN · IST
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="icon-round"><i class="bi bi-github"></i></span>
+            <a class="sub link-light" href="https://github.com/99r0hit" target="_blank" rel="noopener">github.com/99r0hit</a>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="icon-round"><i class="bi bi-linkedin"></i></span>
+            <a class="sub link-light" href="https://linkedin.com/in/rohitchaudhari99" target="_blank" rel="noopener">linkedin.com/in/rohitchaudhari99</a>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <span class="icon-round"><i class="bi bi-envelope"></i></span>
+            <a class="sub link-light" href="mailto:rgc19feb@gmail.com">rgc19feb@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container text-center">
+    <div>© <span id="year"></span> XuanLabs · <span class="gradient-text">Ideas in motion</span></div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
