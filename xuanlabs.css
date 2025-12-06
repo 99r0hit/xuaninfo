@@ -1,0 +1,263 @@
+:root {
+  --ink:#e9eefc;
+  --muted:#a8b3c7;
+  --line:rgba(255,255,255,.08);
+  --bg:#0a0a0c;
+  --fg:#0f1116;
+  --cyan:#8cd3ff;
+  --violet:#b39fff;
+  --radius:16px;
+  --container: min(1120px, 92vw);
+}
+
+/* Base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background: radial-gradient(1200px 900px at 10% -10%, #131621, transparent 60%),
+              radial-gradient(1400px 1000px at 110% 10%, #1a1126, transparent 60%),
+              var(--bg);
+  color:var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+  letter-spacing:.2px;
+  overflow-x:hidden;
+}
+.container{width:var(--container); margin-inline:auto; position:relative; z-index:1}
+
+/* Ambient Layers */
+#stars{position:fixed; inset:0; z-index:0; pointer-events:none}
+.nebula{
+  position:fixed;
+  width:70vmax; height:70vmax;
+  filter:blur(80px);
+  opacity:.18;
+  z-index:0;
+  pointer-events:none;
+  transition:transform .4s ease-out;
+  will-change:transform;
+}
+.nebula-a{
+  top:-18vmax; left:-10vmax;
+  background:radial-gradient(circle at 30% 30%, var(--cyan), transparent 65%);
+}
+.nebula-b{
+  bottom:-20vmax; right:-12vmax;
+  background:radial-gradient(circle at 70% 60%, var(--violet), transparent 65%);
+}
+
+/* Nav */
+.nav-wrap{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(10,10,12,0.48);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;
+}
+.brand{text-decoration:none}
+.brand-mark{
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  letter-spacing: .3px;
+}
+
+.nav-links{
+  display:flex; gap:22px; list-style:none;
+}
+.nav a{color:#dfe9ff; text-decoration:none; opacity:.85; transition:.2s}
+.nav a:hover{opacity:1}
+
+.nav-toggle{
+  display:none;
+  width:42px;height:42px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:rgba(255,255,255,.03);
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;width:20px;height:2px;background:#dfe9ff;
+  margin:6px auto;transition:.25s;
+}
+
+/* Hero */
+.hero{padding:120px 0 80px; text-align:left}
+.hero-inner.floating{
+  animation:floatHero 6s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes floatHero{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.hero-title{
+  font-family:"Space Grotesk", Inter, sans-serif;
+  font-weight:700; line-height:1.08;
+  font-size:clamp(2rem, 5vw, 3.6rem);
+  margin-bottom:.6rem;
+  text-shadow:0 10px 60px rgba(140,211,255,.15);
+}
+.underline{box-shadow:inset 0 -.45em 0 rgba(140,211,255,.12)}
+.hero-sub{
+  color:var(--muted);
+  font-size:clamp(1rem, 2.6vw, 1.2rem);
+  max-width:54ch;
+}
+.hero-ctas{display:flex; gap:12px; margin-top:22px}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.85rem 1.1rem;
+  border-radius:12px;
+  border:1px solid var(--line);
+  font-weight:600; cursor:pointer; text-decoration:none;
+}
+.btn.primary{
+  background:linear-gradient(90deg, var(--cyan), var(--violet));
+  color:#0d1520;
+  box-shadow:0 4px 22px rgba(140,211,255,.25);
+  transition:.25s;
+}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{
+  background:rgba(255,255,255,.06);
+  color:#dfe9ff;
+}
+.btn.plain{
+  background:transparent;
+  border-color:var(--line);
+  color:#dfe9ff;
+}
+
+/* Sections */
+.section{padding:72px 0}
+.section-head h2{
+  font:700 clamp(1.2rem, 3vw, 1.7rem) "Space Grotesk";
+  margin-bottom:8px;
+}
+
+/* Grid */
+.grid{display:grid; gap:20px}
+.grid.two{grid-template-columns:1.1fr .9fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:980px){.grid.two,.grid.three,.grid.four{grid-template-columns:1fr}}
+
+/* Glass */
+.glass{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid var(--line); border-radius:var(--radius);
+  backdrop-filter:blur(10px);
+}
+
+/* Cards */
+.card{
+  padding:22px;
+}
+.card h3{margin:.35rem 0 .4rem 0}
+.card p{color:var(--muted)}
+
+.card-pill{
+  display:inline-block;
+  padding:.35rem .6rem;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.05);
+  font-weight:700; font-size:.8rem; color:#cfe6ff;
+}
+
+.lift{
+  transition:transform .25s ease, box-shadow .25s ease;
+  will-change:transform;
+}
+.lift:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 44px rgba(140,211,255,.15);
+}
+
+/* Stats */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.stat{padding:18px; text-align:center}
+.stat .num{font-weight:800; font-size:1.4rem}
+.stat .label{color:var(--muted); font-size:.85rem}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* Chips */
+.chips{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-top:18px; list-style:none;
+}
+.chip{
+  padding:.5rem .7rem;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.05);
+  font-size:.9rem; font-weight:600;
+}
+
+/* Highlight Cards */
+.list-card{
+  padding:20px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.list-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 36px rgba(140,211,255,.12);
+}
+
+/* CTA */
+.cta{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px; gap:18px;
+}
+.cta-sub{color:var(--muted)}
+
+/* Footer */
+.footer{padding:36px 0 60px}
+.foot-grid{
+  display:grid; gap:10px;
+  grid-template-columns:1fr auto auto;
+}
+@media (max-width:720px){.foot-grid{grid-template-columns:1fr}}
+
+.muted{color:#a6b1c3}
+
+/* Scroll Reveal */
+.reveal{opacity:0; transform:translateY(20px); transition:all .8s ease-out}
+.reveal.show{opacity:1; transform:none}
+.fade-up{}
+.fade-in{transform:none; opacity:0}
+.fade-in.show{opacity:1}
+
+/* Mobile Nav */
+@media (max-width:960px){
+  .nav-toggle{display:flex; align-items:center; justify-content:center}
+  .nav-links{
+    position:absolute;
+    top:64px; right:4vw;
+    padding:14px;
+    background:rgba(8,10,14,.75);
+    backdrop-filter:blur(10px);
+    border:1px solid var(--line);
+    border-radius:12px;
+    flex-direction:column;
+    display:none;
+    animation:navPop .3s ease;
+  }
+  @keyframes navPop {
+    from{opacity:0; transform:translateY(-8px)}
+    to{opacity:1; transform:none}
+  }
+  .nav-links.open{display:flex}
+}
