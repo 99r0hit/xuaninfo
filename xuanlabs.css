@@ -261,3 +261,27 @@ body{
   }
   .nav-links.open{display:flex}
 }
+.cie-showcase {
+  padding: 2.5rem;
+  border-radius: 24px;
+  margin-top: 1rem;
+}
+
+.cie-showcase .features {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.cie-industries h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cie-industries .chips {
+  margin-bottom: 2rem;
+}
+
+
