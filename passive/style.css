@@ -1,0 +1,361 @@
+/* ================================
+   Design Tokens
+================================ */
+:root {
+  --bg-body: #f8f9fa;
+  --bg-card: #ffffff;
+  --border-color: #e5e7eb;
+
+  --text-main: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+
+  /* Status Colors */
+  --status-safe-bg: #ecfdf5;
+  --status-safe-text: #065f46;
+  --status-safe-border: #a7f3d0;
+
+  --status-warn-bg: #fffbeb;
+  --status-warn-text: #92400e;
+  --status-warn-border: #fde68a;
+
+  --status-risk-bg: #fef2f2;
+  --status-risk-text: #991b1b;
+  --status-risk-border: #fecaca;
+
+  --mono-font: "JetBrains Mono", monospace;
+}
+
+/* ================================
+   Reset & Base
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   Layout
+================================ */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ================================
+   Header & Controls
+================================ */
+header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.brand h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.brand span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  max-width: 900px;
+}
+
+.search-wrapper {
+  flex: 2;
+}
+
+/* Inputs */
+input[type="text"],
+select {
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.25rem;
+}
+
+.control-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0 0.75rem;
+  color: var(--text-secondary);
+}
+
+select {
+  border: none;
+  background: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+/* ================================
+   Results
+================================ */
+.results-info {
+  margin: 2rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* ================================
+   Component Card
+================================ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: box-shadow 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mpn {
+  font-family: var(--mono-font);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.manufacturer {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Badges */
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.badge-safe {
+  background: var(--status-safe-bg);
+  color: var(--status-safe-text);
+  border-color: var(--status-safe-border);
+}
+
+.badge-warn {
+  background: var(--status-warn-bg);
+  color: var(--status-warn-text);
+  border-color: var(--status-warn-border);
+}
+
+.badge-risk {
+  background: var(--status-risk-bg);
+  color: var(--status-risk-text);
+  border-color: var(--status-risk-border);
+}
+
+/* ================================
+   Specs
+================================ */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  background: #fafafa;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.spec-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.spec-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ================================
+   Pricing
+================================ */
+.pricing-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.unit-price {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.price-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.savings {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--status-safe-text);
+}
+
+.bulk-price {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* ================================
+   Footer
+================================ */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stock {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.stock.in-stock {
+  color: var(--status-safe-text);
+}
+
+.stock.low-stock {
+  color: var(--status-warn-text);
+}
+
+.datasheet-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.datasheet-link:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   States
+================================ */
+#loading-state,
+#empty-state {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

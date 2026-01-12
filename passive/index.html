@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Xuanlabs – Passive Component Intelligence</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="container header-content">
+    <div class="brand">
+      <h1>Xuanlabs</h1>
+      <span>Passive Component Intelligence</span>
+    </div>
+
+    <div class="controls">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Enter MPN or description (e.g. 10uF 16V 0603)"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="control-group">
+        <label for="qtySelect">QTY</label>
+        <select id="qtySelect">
+          <option value="1">1</option>
+          <option value="100">100</option>
+          <option value="1000">1,000</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="sortSelect">SORT</label>
+        <select id="sortSelect">
+          <option value="match">Engineering Match</option>
+          <option value="price_asc">Price: Low → High</option>
+          <option value="price_desc">Price: High → Low</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" type="button" onclick="handleSearch()">
+        Search
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Results Meta -->
+  <div id="results-meta" class="results-info hidden">
+    <h2>
+      Replacement Recommendations for
+      <span id="target-mpn" class="mono"></span>
+    </h2>
+    <span id="result-count" class="muted"></span>
+  </div>
+
+  <!-- Loading -->
+  <div id="loading-state" class="hidden">
+    <p>Analyzing component ecosystem and calculating safety scores…</p>
+  </div>
+
+  <!-- Empty State -->
+  <div id="empty-state">
+    <div class="empty-wrapper">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+      >
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+
+      <h3>Ready for analysis</h3>
+      <p>
+        Enter a Manufacturer Part Number or electrical specifications to find
+        safe, cost-optimized drop-in replacements.
+      </p>
+    </div>
+  </div>
+
+  <!-- Results Grid -->
+  <div id="results-grid" class="grid">
+    <!-- JS injects cards here -->
+  </div>
+
+</main>
+
+<!-- App Script -->
+<script src="app.js"></script>
+
+</body>
+</html>
