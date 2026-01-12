@@ -205,7 +205,63 @@ body{
   background:rgba(255,255,255,.05);
   font-size:.9rem; font-weight:600;
 }
+/* Product Sections (Tools) */
+.section.product {
+  position: relative;
+  padding: 84px 0;
+}
 
+.section.product::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px 400px at 50% -10%,
+    rgba(140,211,255,0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Product CTA */
+.btn.product {
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  color: #0d1520;
+  font-weight: 700;
+  box-shadow: 0 6px 28px rgba(140,211,255,.35);
+}
+
+.btn.product:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(140,211,255,.45);
+}
+
+/* Readability improvements */
+.lead,
+.section p {
+  max-width: 68ch;
+}
+/* Passive Intelligence emphasis */
+#passive-intelligence {
+  margin-top: 24px;
+}
+
+#passive-intelligence .chips {
+  margin-top: 20px;
+}
+
+#passive-intelligence .chip {
+  background: rgba(140,211,255,.08);
+  border-color: rgba(140,211,255,.25);
+}
+a:hover {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
 /* Highlight Cards */
 .list-card{
   padding:20px;
@@ -283,5 +339,6 @@ body{
 .cie-industries .chips {
   margin-bottom: 2rem;
 }
+
 
 
